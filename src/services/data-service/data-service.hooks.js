@@ -1,6 +1,9 @@
+const { authenticate } = require('feathers-authentication').hooks
+
 module.exports = {
   before: {
-    all: [],
+    // todo: restrict to only user account field
+    all: [authenticate('jwt')],
     find: [],
     get: [],
     create: [],
